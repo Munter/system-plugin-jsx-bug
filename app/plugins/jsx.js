@@ -8,15 +8,17 @@ exports.translate = function (load) {
   });
 
   if (transform.sourceMap) {
+    var moduleName = load.address.replace(this.baseURL, '');
+
     var sourceMap = transform.sourceMap.toJSON();
-    sourceMap.file = load.name;
-    sourceMap.sources[0] = this.baseURL + load.name;
+    sourceMap.file = moduleName;
+    sourceMap.sources[0] = load.source;
+
+    console.log('sourceMap', sourceMap);
 
     load.metadata.sourceMap = transform.sourceMap;
   }
 
-// console.log(this, load);
-// console.log(sourceMap);
 
   return transform.code;
 }
