@@ -3,7 +3,7 @@
 To get started run:
 
 ```
-npm install && jspm install && npm run
+npm install && jspm install && npm start
 ```
 
 Then open `http://localhost:9001` and follow the instructions
